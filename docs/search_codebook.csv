@@ -1,0 +1,8 @@
+Column	Dtype	Description
+name	string	Tên của sản phẩm
+category	string	Nhóm sản phẩm
+n_sold	float64	Số lượng sản phẩm đã bán
+price	float64	Giá tiền của sản phẩm
+shop_address	string	Địa chỉ của shop
+image_url	string	Url của thumbnail sản phẩm
+url	string	Url tới sản phẩm (phục vụ việc crawl dữ liệu items)

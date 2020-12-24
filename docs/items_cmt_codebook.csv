@@ -1,0 +1,4 @@
+Column	Dtype	Description
+id	int64	id của sản phẩm tại dòng tương ứng với index từ search_15k6, dùng để map sang bộ dữ liệu lưu bình luận
+rating	int64	Rating mà người dùng quyết định
+content	string	Nội dung của bình luận của người dùng cho rating trên

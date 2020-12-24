@@ -1,0 +1,22 @@
+Column	Dtype	Value range	Description
+id	int64	>= 0 	id của sản phẩm tại dòng tương ứng với index từ search_15k6, dùng để map sang bộ dữ liệu lưu bình luận
+name	string		Tên của sản phẩm
+avg_rating	float64	1 - 5	Rating trung bình của sản phẩm
+n_reviews	int64	>= 0	Số lượng đánh giá cho sản phẩm
+n_sold	float64	>= 0	Số lượng sản phẩm đã bán
+price	float64	> 0	Giá tiền của sản phẩm
+n_loved	int64	>= 0	Số lượt yêu thích cho sản phẩm
+n_rate_5	int64	>= 0	Số lượng người đánh giá với 5 sao
+rate_4	int64	>= 0	Số lượng người đánh giá với 4 sao
+rate_3	int64	>= 0	Số lượng người đánh giá với 3 sao
+rate_2	int64	>= 0	Số lượng người đánh giá với 2 sao
+rate_1	int64	>= 1	Số lượng người đánh giá với 1 sao
+rate_with_cmt	int64	>= 2	Số lượng người đánh giá có bình luận
+rate_with_imgvid	int64	>= 3	Số lượng người đánh giá có bình luận đính kèm hình ảnh / video
+shop_name	string		Tên chủ shop bán
+shop_n_review	int64	>= 0	Số lượng đánh giá cho shop bán
+shop_n_product	int64	> 0	Số lượng sản phẩm của shop
+shop_rate_feedback	float64	>=0	Tỉ lệ phản hồi của shop
+shop_time_feedback	float64	> 0	Thời gian phản hồi của shop (được tính bằng giây)
+shop_age	float64	> 0	Thời gian shop tham gia (tuổi của shop từ ngày tạo trên hệ thống shopee, được tính bằng giây từ lúc thành lập tới nay)
+shop_follower	int64		Số lượng người theo dõi shop
