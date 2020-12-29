@@ -1,10 +1,12 @@
 # Khoa học dữ liệu và ứng dụng
 ## Thành viên nhóm
 
-|Họ & tên|MSSV|
-|---|---|---|
-|Lê Minh Nhật| 1712114|
-|Phạm Trọng Thắng| 1712760 |
+|Họ và tên|MSSV|
+|---|---|
+|Lê Minh Nhật|1712114|
+|Phạm Trọng Thắng|1712760|
+
+
 
 ## Phân công công việc
 
