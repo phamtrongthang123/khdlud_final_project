@@ -2,7 +2,7 @@
 ## Thành viên nhóm
 
 |Họ & tên|MSSV|
-|-|-|-|
+|---|---|---|
 |Lê Minh Nhật| 1712114|
 |Phạm Trọng Thắng| 1712760 |
 
