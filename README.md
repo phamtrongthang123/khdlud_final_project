@@ -1,5 +1,6 @@
 # Khoa học dữ liệu và ứng dụng
 ## Thành viên nhóm
+
 |Họ & tên|MSSV|
 |-|-|-|
 |Lê Minh Nhật| 1712114|
