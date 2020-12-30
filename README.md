@@ -306,6 +306,7 @@ Ta thấy kết quả có phần ổn định hơn so với 2 phần trên (
 
 
 ### Neural Network Regression
+
 Tương tự như Linear Regression , ta sẽ tiền xử lý input bằng việc chuẩn hóa các features theo phương pháp Z-score normalization.
 Ta sẽ thực nghiệm với 1 mạng Neural Network nhỏ như sau:
 
@@ -315,11 +316,14 @@ Input Vector -> FC(32 units) + ReLU -> FC(64 units) + ReLU -> Output (1 unit) + 
 Nguyên nhân ta sử dụng hàm ReLU activation lên output (thay vì Linear) là do ta muốn các giá trị dự đoán đều không âm.
 Với weights của mỗi layer, ta sẽ sử dụng `L2-Regularization` với $\alpha$ =0.1 để hạn chế việc overfitting.
 Hàm mất mát ta sẽ sử dụng là hàm `MAE`:
+
+
 \begin{equation}
 L(y, \hat{y}) = \frac{1}{N} \sum_{i=0}^{N}|y - {\hat{y}}_i|
 \end{equation}
 
 #### Sử dụng toàn bộ features (Onehot Encoding + numeric) 82 chiều:
+
 |Dataset|MAE|SIA-500|SIA-200|
 |-|-|-|-|-|
 |train|405.848|0.867|0.727|
@@ -329,6 +333,7 @@ L(y, \hat{y}) = \frac{1}{N} \sum_{i=0}^{N}|y - {\hat{y}}_i|
 ---
 
 #### Chỉ sử dụng các numerical features :
+
 |Dataset|MAE|SIA-500|SIA-200|
 |-|-|-|-|-|
 |train|449.249|0.840|0.710|
@@ -338,6 +343,7 @@ L(y, \hat{y}) = \frac{1}{N} \sum_{i=0}^{N}|y - {\hat{y}}_i|
 ---
 
 #### Sử dụng Mean Encoding cho các categorical features (12 chiều):
+
 |Dataset|MAE|SIA-500|SIA-200|
 |-|-|-|-|-|
 |train|433.238|0.851|0.723|
@@ -412,6 +418,7 @@ Một số lưu ý khi sử dụng phoBERT làm feature extractor:
 Do dữ liệu văn bản ở đây chưa đủ lớn nên ta sẽ fine-tune mô hình bằng việc đóng băng các trọng số của BERT, chỉ cần huấn luyện bộ classifier.
 
 Kết quả thu được:
+
 |Method|train acc.|val acc.|test acc.|
 |-|-|-|-|
 |Linear SVM|0.535|0.494|0.479|
