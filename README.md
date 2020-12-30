@@ -260,6 +260,7 @@ Trước khi huấn luyện mô hình, ta sẽ chuẩn hóa các features theo p
 Kết quả khi sử dụng Ridge Regression (cùng với việc tinh chỉnh hyperparameter $\alpha$ tốt nhất sử dụng phương pháp GridSearch trên tập `val`), ta có kết quả như sau:
 `Best cross-validation MAE: 582.711 
 with alpha = 10.0`
+
 |Dataset|MAE|SIA-500|SIA-200|
 |---|---|---|---|---|
 |train|609.247|0.721|0.473|
