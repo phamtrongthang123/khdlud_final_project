@@ -1,12 +1,10 @@
 # Khoa học dữ liệu và ứng dụng
 ## Thành viên nhóm
 
-|Họ và tên|MSSV|
-|---|---|
-|Lê Minh Nhật|1712114|
-|Phạm Trọng Thắng|1712760|
-
-
+|Họ & tên|MSSV|
+|-|-|
+|Lê Minh Nhật| 1712114|
+|Phạm Trọng Thắng| 1712760 |
 
 ## Phân công công việc
 
@@ -148,7 +146,7 @@ Tuy nhiên sau khi tính toán correlation, dữ liệu cho thấy chỉ có s�
 
 Đối với câu hỏi trên, nhóm dựa trên quan sát lúc crawl dữ liệu là có những sản phẩm chỉ bán có 1, 2 sản phẩm nhưng đánh giá trung bình là 5 sao, đối với lượng yêu thích là vì có những sản phẩm người dùng chỉ quan tâm mua mà không đánh dấu yêu thích. Dựa vào quan sát này nhóm đã thử lấy top sản phẩm bán ít nhất, và thấy được là việc dựa vào đánh giá trung bình là không đánh tin cậy vì đúng là nhiều sản phẩm bán ít mà vẫn 5 sao. Tương tự, nhóm in ra các sản phẩm bán chạy nhất thì thấy thuộc tính yêu thích rất ngẫu nhiên nếu nhìn chung các sản phẩm, tức là bán nhiều nhưng yêu thích rất thấp, hoặc trung bình, hoặc cao. Tuy nhiên nếu lọc riêng ra lấy tên shop nào đó thì giá trị tương quan lại cao, do đó vẫn có thể dùng được số lượng yêu thích vào mô hình hóa dữ liệu. 
 
-Bên cạnh các thuộc tính, nhóm cũng mong muốn có thể tìm một metric để phục vụ việc đánh giá mô hình dự đoán. Nhóm tính sử dụng một metric sử dụng độ chênh lệch làm accuracy, gọi là ***Soft Interval Accuracy (SIA)***, tuy nhiên có 1 hyperparameter phải lựa chọn là epsilon (metric này có nghĩa là cho trước 1 giá trị epsilon, một dự đoán được xem là đúng (True) khi nó có giá trị nằm trong khoảng $(y - epsilon, y + epislon)$  hay $|y - \hat{y}| < eps$ với $y$ là groundtruth label và $\hat{y}$ là giá trị dự đoán). Từ dữ liệu nhóm vẽ ra distribution plot để xem thì phát hiện rất nhiều giá trị n_sold thấp hơn 1000, xem bảng mô tả của pandas thì thấy 75% sản phẩm đều có n_sold thấp như thế. Việc quan sát này đã giúp cho nhóm giới hạn lại epsilon cho phù hợp với đa số sản phẩm được thu thập.
+Bên cạnh các thuộc tính, nhóm cũng mong muốn có thể tìm một metric để phục vụ việc đánh giá mô hình dự đoán. Nhóm dự định sử dụng một metric sử dụng độ chênh lệch làm accuracy, gọi là ***Soft Interval Accuracy (SIA)***, tuy nhiên có 1 hyperparameter phải lựa chọn là epsilon (metric này có nghĩa là cho trước 1 giá trị epsilon, một dự đoán được xem là đúng (True) khi nó có giá trị nằm trong khoảng $(y - epsilon, y + epislon)$  hay $|y - \hat{y}| < eps$ với $y$ là groundtruth label và $\hat{y}$ là giá trị dự đoán). Từ dữ liệu nhóm vẽ ra distribution plot để xem thì phát hiện rất nhiều giá trị `n_sold` thấp hơn 1000, xem bảng mô tả của pandas thì thấy 75% sản phẩm đều có `n_sold` thấp như thế. Việc quan sát này đã giúp cho nhóm giới hạn lại epsilon cho phù hợp với đa số sản phẩm được thu thập.
 
 Ở trên nhóm đã trình bày mô tả sơ lược kết quả và quá trình tìm hiểu. Chi tiết các lệnh gọi và kết quả đều nằm trong notebook `eda.ipynb`. 
 
@@ -423,13 +421,75 @@ Kết quả thu được:
 Nhóm đề xuất nếu có thời gian finetune lại toàn bộ mô hình BERT và huấn luyện lại cả bộ tokenizer (vocabulary) thì kết quả có thể sẽ tốt hơn nhiều.
 
 
-## Product classification
+## Image Product Category Prediction
 
-Khi shop đăng bán các sản phẩm, đôi khi có những mục không rõ ràng là vì sản phẩm không rõ ràng, hoặc sản phẩm thuộc nhiều danh mục, hoặc shop muốn tự động hóa quá trình chọn (vì shopee có quá nhiều danh mục để chọn) thì có thể shop mong muốn đưa sản phẩm của mình vào nơi phù hợp nhất mà tốn ít công sức tìm hiểu nhất. Dựa trên dữ liệu ảnh thu thập được, nhóm đã train mô hình ... (Nhật ghi vô nha)
+Khi shop đăng bán các sản phẩm, đôi khi có những mục không rõ ràng là vì sản phẩm không rõ ràng, hoặc sản phẩm thuộc nhiều danh mục, hoặc shop muốn tự động hóa quá trình chọn (vì shopee có quá nhiều danh mục để chọn) thì có thể shop mong muốn đưa sản phẩm của mình vào nơi phù hợp nhất mà tốn ít công sức tìm hiểu nhất. Dựa trên dữ liệu ảnh thu thập được, nhóm mong muốn áp dụng một mô hình phân loại sản phẩm dựa trên hình ảnh.
+
+Về việc thu thập dữ liệu hình ảnh, ta sẽ dựa trên trường `image_url` trong file `search_15k6.csv` với nhãn tương ứng là `category` (Do điều kiện giới hạn nhóm chỉ thu thập 16 loại sản phẩm khác nhau).
+
+Sau khi thu thập dữ liệu, nhóm sẽ tiến hành chia thành các tập `train` `val` và `test` theo tỉ lệ: 70% - 10% - 20% (Kèm theo xóa các file ảnh bị hư, lỗi).
+Số lượng ảnh trong từng tập con:
+
+|Dataset|No. of images|
+|-|-|
+|train|11261|
+|val|1253|
+|test|3131|
+|Total|15645|
+
+Dữ liệu ảnh thu thập được có trong các thư mục 
+- `data/images` (chưa chia subset)
+- `data/images_splitted` (đã chia train -val - test)
+
+Nhóm sử dụng mô hình ResNet-50 được huấn luyện sẵn trên tập ImageNet để làm baseline model, sau đó tiến hành fine-tune trên dữ liệu thu thập được. Kết quả thu được trong bảng sau:
+
+|Dataset|Accuracy|
+|-|-|
+|train|0.9853|
+|val|0.7590|
+|test|0.7614|
+
+Có thể thấy mô hình có độ chính xác khá tốt.
 
 
-# Hướng dẫn sử dụng chương trình
 
+
+# Hướng dẫn chạy chương trình
+
+## Thu thập dữ liệu
+
+Nhóm giả định người dùng notebook crawling sẽ dùng mạng trong điều kiện thông thường. Nếu khác đường truyền (yếu hơn) thì có thể dẫn đến việc treo máy vẫn không lấy đủ dữ liệu. 
+
+Bên dưới là thứ tự crawl dữ liệu:
+
+- `crawling_search.ipynb` chạy từ đầu tới cuối, phải treo máy vì sử dụng selenium.
+- (Optional)`crawling_product.ipynb` chạy từ đầu đến cuối, có 2 cell có vẻ trùng nhau là vì có thể bị miss id nào đó (do đường truyền mạng) nên sẽ chạy lại với các id bị lỗi.
+- `crawling_product_api.ipynb` tương tự cho notebook trên, chỉ khác là dùng query request lên nên sẽ nhanh hơn một chút.
+- `crawling_product_cmt.ipynb` chạy từ đầu đến trước phần `using requests` nếu chỉ crawling html, nếu muốn dùng query thì sau khi import thư viện chỉ việc chạy các cell bên trong phần `using requests`
+
+Sau khi đã thu thập toàn bộ dữ liệu 
+*Hoặc*
+***Download toàn bộ dữ liệu mà nhóm đã chuẩn bị sẵn trên [Google Drive](https://)***
+Ta sẽ giải nén dữ liệu vào thư mục `./data`
+Ta sẽ thực hiện các bước tiếp theo đó là *Khám phá dữ liệu* và *Mô hình hóa dữ liệu* để giải quyết bài toán.
+
+
+## Khám phá dữ liệu
+Với notebook `eda.ipynb`, chạy từ đầu tới cuối là được. Lưu ý là ở đây, là nhóm giả sử ta đang lấy dữ liệu trong thư mục `./data`, nên nếu muốn dùng dữ liệu từ bước crawl thì phải di chuyển vào thư mục đó. Nếu dùng dữ liệu nhóm cung cấp thì không cần quan tâm điều này.
+
+## Mô hình hóa dữ liệu
+Nhóm đã thực hiện 3 bài toán ở trên một cách độc lập nhau trong các file:
+
+- `[Modeling] Sold Prediction.ipynb`
+- `[Modeling] Reviews Rating Prediction.ipynb`
+- `[Modeling] Image Product Category Prediction.ipynb`
+
+Lưu ý: Ở đây nhóm đã giả sử các thư viện cần thiết được cài đặt đầy đủ (chi tiết cài đặt có trong các file notebooks). Đặc biệt là thư viện `tensorflow>=2.0.0`
+
+
+Do đó chỉ cần dữ liệu hợp lệ là có thể chạy riêng từng file từ trên xuống dưới.
+
+Ngoài ra nhóm còn tổng hợp 3 Bài toán trên vào một file `Demo.ipynb` để thực hiện kiểm tra các mô hình dự đoán trong sản phẩm thực tế.
 # Demo
 
 
