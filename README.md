@@ -1,4 +1,37 @@
 # Khoa học dữ liệu và ứng dụng
+- [Khoa học dữ liệu và ứng dụng](#khoa-h-c-d--li-u-v---ng-d-ng)
+  * [Thành viên nhóm](#tha-nh-vi-n-nho-m)
+  * [Phân công công việc](#ph-n-c-ng-c-ng-vi--c)
+- [Đề tài](#---t-i)
+- [Thu thập dữ liệu](#thu-th-p-d--li-u)
+- [Shopee datasets](#shopee-datasets)
+- [Khám phá dữ liệu](#kha-m-pha--d---li--u)
+- [Mô hình hóa dữ liệu](#m--hi-nh-ho-a-d---li--u)
+  * [Sold Capability Prediction](#sold-capability-prediction)
+    + [Random Forest Regression](#random-forest-regression)
+      - [Dự đoán sử dụng toàn bộ features (one hot + numeric) 82 chiều:](#d---o-n-s--d-ng-to-n-b--features--one-hot---numeric--82-chi-u-)
+      - [Chỉ sử dụng các numerical features (10 chiều):](#ch--s--d-ng-c-c-numerical-features--10-chi-u--)
+      - [Chỉ sử dụng các features liên quan đến shop và sản phẩm (loại bỏ các feature về rating, số lượt yêu thích,...):](#ch--s--d-ng-c-c-features-li-n-quan---n-shop-v--s-n-ph-m--lo-i-b--c-c-feature-v--rating--s--l--t-y-u-th-ch---)
+    + [Linear Regression](#linear-regression)
+      - [Linear Regression sử dụng toàn bộ features (one hot + numeric) 82 chiều:](#linear-regression-s--d-ng-to-n-b--features--one-hot---numeric--82-chi-u-)
+      - [Linear Regression chỉ sử dụng các numerical features:](#linear-regression-ch--s--d-ng-c-c-numerical-features-)
+      - [Linear Regression sử dụng Mean Encoding cho các categorical features (12 chiều):](#linear-regression-s--d-ng-mean-encoding-cho-c-c-categorical-features--12-chi--u--)
+    + [Neural Network Regression](#neural-network-regression)
+      - [Sử dụng toàn bộ features (Onehot Encoding + numeric) 82 chiều:](#s--d-ng-to-n-b--features--onehot-encoding---numeric--82-chi--u-)
+      - [Chỉ sử dụng các numerical features:](#ch--s--d-ng-c-c-numerical-features-)
+      - [Sử dụng Mean Encoding cho các categorical features (12 chiều):](#s--d-ng-mean-encoding-cho-c-c-categorical-features--12-chi--u--)
+  * [Review Rating Prediction](#review-rating-prediction)
+    + [Dự đoán sử dụng đặc trưng TF-IDF](#d----oa-n-s---du-ng----c-tr-ng-tf-idf)
+    + [Dự đoán sử dụng đặc trưng trích xuất từ mô hình BERT](#d----oa-n-s---du-ng----c-tr-ng-tri-ch-xu--t-t---m--hi-nh-bert)
+  * [Image Product Category Prediction](#image-product-category-prediction)
+- [Hướng dẫn chạy chương trình](#h--ng-d-n-ch-y-ch--ng-tri-nh)
+  * [Thu thập dữ liệu](#thu-th--p-d---li--u)
+  * [Khám phá dữ liệu](#kha-m-pha--d---li--u-1)
+  * [Mô hình hóa dữ liệu](#m--hi-nh-ho-a-d---li--u-1)
+- [Demo](#demo)
+
+
+
 ## Thành viên nhóm
 
 |Họ & tên|MSSV|
@@ -136,7 +169,7 @@ Bộ 15k6 dòng gồm:
 |  1 |    2 |        5 | e đã nhận hàng nha shop . máy rất deph . máy bao gồm pin và sạc rất rẻ và máy xài rất ok ...... . . |
 |  2 |    2 |        4 | Mới mua lần đầu. Cầm chắc tay. Chất lượng chưa kiểm chứng.                                          |
 
-# EDA: 
+# Khám phá dữ liệu 
 
 Phần này nhóm tập trung khám phá dữ liệu để phục vụ hỗ trợ cho phần mô hình hóa dữ liệu, do đó câu hỏi lớn sẽ là: **Những thuộc tính đã có sẽ ảnh hưởng thế nào đến việc dự đoán số lượng bán của một sản phẩm?**.
 
@@ -150,7 +183,7 @@ Bên cạnh các thuộc tính, nhóm cũng mong muốn có thể tìm một met
 
 Ở trên nhóm đã trình bày mô tả sơ lược kết quả và quá trình tìm hiểu. Chi tiết các lệnh gọi và kết quả đều nằm trong notebook `eda.ipynb`. 
 
-# Mô hình hóa dữ liệu: 
+# Mô hình hóa dữ liệu
 ## Sold Capability Prediction
 Metrics đánh giá mà nhóm sử dụng: ***Mean Absolute Error (MAE)*** hoặc ***Soft Interval Accuracy (SIA)***
 Các features sử dụng cho việc dự đoán: 
@@ -359,7 +392,7 @@ Hàm mất mát ta sẽ sử dụng là hàm `MAE`:
 **KẾT LUẬN**: thực nghiệm cho thấy 2 mô hình cho kết quả tốt nhất là Random Forest và Neural Network với việc sử dụng toàn bộ các features. Tuy nhiên mô hình Neural Network có thời gian huấn luyện khá lâu so với Random Forest. Hơn nữa, nhóm nhận thấy metric đánh giá `SIA-200` là phù hợp với tập dữ liệu này, nguyên nhân là vì trong phần **EDA**, ta thấy phần lớn các sản phẩm đều có số lượt bán thấp (75% dữ liệu có số lượt bán dưới 1000). Do đó mà việc giới hạn sai số dự đoán (epsilon) thấp sẽ cho ta đánh giá phù hợp với mong muốn hơn.
 
 ## Review Rating Prediction
-Motivation here (phụ t với :v): Trong quá trình thu thập dữ liệu, nhóm nhận thấy có một số dữ liệu nhiễu làm ảnh hưởng đến rating của sản phẩm, ví dụ như review giả, comment spam, abc xyz các kiểu, review chê nhưng rating lại cao hay ngược lại,... Nên nhóm dự định sẽ áp dụng các kỹ thuật xử lý ngôn ngữ tự nhiên (NLP) và máy học với mong muốn điều chỉnh lại các rating cho sản phẩm, cụ thể là dự đoán Rating (số sao đánh giá mang giá trị rời rạc từ 1 đến 5) của sản phẩm dựa trên văn bản của một lượt review.
+Trong quá trình thu thập dữ liệu, nhóm nhận thấy có một số dữ liệu nhiễu làm ảnh hưởng đến rating của sản phẩm, ví dụ như review giả, comment spam, abc xyz các kiểu, review chê nhưng rating lại cao hay ngược lại,... Nên nhóm dự định sẽ áp dụng các kỹ thuật xử lý ngôn ngữ tự nhiên (NLP) và máy học với mong muốn điều chỉnh lại các rating cho sản phẩm, cụ thể là dự đoán Rating (số sao đánh giá mang giá trị rời rạc từ 1 đến 5) của sản phẩm dựa trên văn bản của một lượt review của khách hàng.
 
 Metrics đánh giá mà nhóm sử dụng: ***Class Accuracy*** *(Acc.)*
 
