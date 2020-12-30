@@ -154,6 +154,7 @@ Bên cạnh các thuộc tính, nhóm cũng mong muốn có thể tìm một met
 ## Sold Capability Prediction
 Metrics đánh giá mà nhóm sử dụng: ***Mean Absolute Error (MAE)*** hoặc ***Soft Interval Accuracy (SIA)***
 Các features sử dụng cho việc dự đoán: 
+
 |Feature name | Type | 
 |---|---|
 |category |categorical|
@@ -172,7 +173,9 @@ Các features sử dụng cho việc dự đoán:
 Ta sẽ phân chia dữ liệu thành các tập `train - validation - test` set theo tỉ lệ: `60% - 20% - 20%`
 ### Random Forest Regression
 #### Dự đoán sử dụng toàn bộ features (one hot + numeric) 82 chiều:
+
 Kết quả:
+
 |Dataset|MAE|
 |-|-|
 |train| 159.64|
@@ -276,6 +279,7 @@ Ta thấy hiệu năng của mô hình thấp hơn phương pháp Random Fores
 #### Linear Regression chỉ sử dụng các numerical features:
 
 Kết quả:
+
 |Dataset|MAE|SIA-500|SIA-200|
 |-|-|-|-|-|
 |train|600.929|0.764|0.399|
@@ -291,6 +295,7 @@ Tiếp theo ta sẽ thử sử dụng Mean Encoding thay thế cho One Hot Encod
 ---
 
 #### Linear Regression sử dụng Mean Encoding cho các categorical features (12 chiều):
+
 Kết quả:
 
 |Dataset|MAE|SIA-500|SIA-200|
