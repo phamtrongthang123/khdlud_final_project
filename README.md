@@ -300,7 +300,7 @@ Tiếp theo ta sẽ thử sử dụng Mean Encoding thay thế cho One Hot Encod
 Kết quả:
 
 |Dataset|MAE|SIA-500|SIA-200|
-|---|---|---|---|---|
+|---|---|---|---|
 |train|602.964|0.755|0.434|
 |val|565.976|0.765|0.425|
 |test|611.147|0.743|0.430|
