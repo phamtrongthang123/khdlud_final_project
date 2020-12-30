@@ -24,7 +24,7 @@ Nhóm nhận thấy khi cửa hàng khi đăng sản phẩm lên để bán onli
 
 Mục đích của đề tài này là khám phá và phát triển một phương pháp có thể dựa vào những dữ liệu đã có để dự đoán sản phẩm mới mà shop tính đăng bán. 
 
-Bên cạnh đề tài lớn, nhóm cũng tìm hiểu và phát triển 2 đề tài nhỏ dựa trên các dữ liệu thu thập được mà nhóm thấy chưa ứng dụng nhiều đó là **Product classification** và **Review Rating Prediction**. 
+Bên cạnh đề tài lớn, nhóm cũng tìm hiểu và phát triển 2 đề tài nhỏ dựa trên các dữ liệu thu thập được mà nhóm thấy chưa ứng dụng nhiều đó là **Image Product Category Prediction** và **Review Rating Prediction**. 
 
 # Thu thập dữ liệu
 
