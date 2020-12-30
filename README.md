@@ -404,7 +404,7 @@ Dat Quoc Nguyen, & Anh Tuan Nguyen (2020). PhoBERT: Pre-trained language models 
 
 Một số lưu ý khi sử dụng phoBERT làm feature extractor:
 - Độ dài một sequence tối đa khi đưa vào phobert là `256`, do đó ta sẽ tiến hành truncate các văn bản có độ dài vượt quá `max_sequence_length`, và padding các văn bản có độ dài ngắn hơn. 
-- Output của mô hình BERT sẽ là 1 tensor có số chiều (N, sequence_length, 768). 
+- Output của mô hình BERT sẽ là 1 tensor có số chiều `(N, sequence_length, 768)`. 
 - Ta sẽ sử dụng vector ứng với token đầu tiên (`<cls>` token), vector này là vector mã hóa đại diện cho toàn bộ văn bản (khi được train trên task Next Sentence Prediction). Ta sẽ lấy vector 768 chiều này làm vector đặc trưng và tiến hành huấn luyện một mô hình classifier dựa trên đó.
 
 Do dữ liệu văn bản ở đây chưa đủ lớn nên ta sẽ fine-tune mô hình bằng việc đóng băng các trọng số của BERT, chỉ cần huấn luyện bộ classifier.
@@ -484,7 +484,7 @@ Nhóm đã thực hiện 3 bài toán ở trên một cách độc lâ
 - `[Modeling] Reviews Rating Prediction.ipynb`
 - `[Modeling] Image Product Category Prediction.ipynb`
 
-Lưu ý: Ở đây nhóm đã giả sử các thư viện cần thiết được cài đặt đầy đủ (chi tiết cài đặt có trong các file notebooks). Đặc biệt là thư viện `tensorflow>=2.0.0`
+Lưu ý: Ở đây nhóm đã giả sử các thư viện cần thiết được cài đặt đầy đủ (ngoài các thư viên thông dụng thì các thư viện đặc biệt cài đặt có trong các file notebooks). Đặc biệt là thư viện `tensorflow>=2.0.0`
 
 
 Do đó chỉ cần dữ liệu hợp lệ là có thể chạy riêng từng file từ trên xuống dưới.
