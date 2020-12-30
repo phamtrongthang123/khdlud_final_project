@@ -1,4 +1,5 @@
 Column	Dtype	Description
+id	int64	id của sản phẩm tại dòng tương ứng với index từ search_15k6, dùng để map sang bộ dữ liệu lưu bình luận
 name	string	Tên của sản phẩm
 category	string	Nhóm sản phẩm
 n_sold	float64	Số lượng sản phẩm đã bán

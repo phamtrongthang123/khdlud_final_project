@@ -99,24 +99,25 @@ Bộ 15k6 dòng gồm:
 
 **Tổng quan và mô tả dữ liệu được sử dụng:**
 
-- **search_15k6.csv:** 15648 dòng, 7 cột
+- **search_15k6.csv:** 15648 dòng, 8 cột
 
-|    | Column       | Dtype   | Description                                         |
-|---:|:-------------|:--------|:----------------------------------------------------|
-|  0 | name         | string  | Tên của sản phẩm                                    |
-|  1 | category     | string  | Nhóm sản phẩm                                       |
-|  2 | n_sold       | float64 | Số lượng sản phẩm đã bán                            |
-|  3 | price        | float64 | Giá tiền của sản phẩm                               |
-|  4 | shop_address | string  | Địa chỉ của shop                                    |
-|  5 | image_url    | string  | Url của thumbnail sản phẩm                          |
-|  6 | url          | string  | Url tới sản phẩm (phục vụ việc crawl dữ liệu items) |
+|    | Column       | Dtype   | Description                                                                                            |
+|---:|:-------------|:--------|:-------------------------------------------------------------------------------------------------------|
+|  0 | id           | int64   | id của sản phẩm tại dòng tương ứng với index từ search_15k6, dùng để map sang bộ dữ liệu lưu bình luận |
+|  1 | name         | string  | Tên của sản phẩm                                                                                       |
+|  2 | category     | string  | Nhóm sản phẩm                                                                                          |
+|  3 | n_sold       | float64 | Số lượng sản phẩm đã bán                                                                               |
+|  4 | price        | float64 | Giá tiền của sản phẩm                                                                                  |
+|  5 | shop_address | string  | Địa chỉ của shop                                                                                       |
+|  6 | image_url    | string  | Url của thumbnail sản phẩm                                                                             |
+|  7 | url          | string  | Url tới sản phẩm (phục vụ việc crawl dữ liệu items)                                                    |
 
 **Ví dụ:** 
 
-|    | name                                                             | category   |   n_sold |     price | shop_address    | image_url                                                     | url                                                                                                                                                |
-|---:|:-----------------------------------------------------------------|:-----------|---------:|----------:|:----------------|:--------------------------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------|
-|  0 | Điện thoại OPPO A37 Fullbox Mới - 2GB/16GB - Bảo hành 12 tháng - | DIENTHOAI  |     7800 | 1.299e+06 | TP. Hồ Chí Minh | https://cf.shopee.vn/file/654146756efe4b5fe7cf516a2221b153_tn | https://shopee.vn/%C4%90i%E1%BB%87n-tho%E1%BA%A1i-OPPO-A37-Fullbox-M%E1%BB%9Bi-2GB-16GB-B%E1%BA%A3o-h%C3%A0nh-12-th%C3%A1ng--i.48782032.6841251055 |
-|  1 | điện thoại Samsung Galaxy S7 chính hãng / full chức năng         | DIENTHOAI  |     6600 | 1.899e+06 | TP. Hồ Chí Minh | https://cf.shopee.vn/file/622be579c39efa0ea92b8659aebfb90a_tn | https://shopee.vn/%C4%91i%E1%BB%87n-tho%E1%BA%A1i-Samsung-Galaxy-S7-ch%C3%ADnh-h%C3%A3ng-full-ch%E1%BB%A9c-n%C4%83ng-i.48782032.7241163781         |
+|    |   id | name                                                             | category   |   n_sold |     price | shop_address    | image_url                                                     | url                                                                                                                                                |
+|---:|-----:|:-----------------------------------------------------------------|:-----------|---------:|----------:|:----------------|:--------------------------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------|
+|  0 |    0 | Điện thoại OPPO A37 Fullbox Mới - 2GB/16GB - Bảo hành 12 tháng - | DIENTHOAI  |     7800 | 1.299e+06 | TP. Hồ Chí Minh | https://cf.shopee.vn/file/654146756efe4b5fe7cf516a2221b153_tn | https://shopee.vn/%C4%90i%E1%BB%87n-tho%E1%BA%A1i-OPPO-A37-Fullbox-M%E1%BB%9Bi-2GB-16GB-B%E1%BA%A3o-h%C3%A0nh-12-th%C3%A1ng--i.48782032.6841251055 |
+|  1 |    1 | điện thoại Samsung Galaxy S7 chính hãng / full chức năng         | DIENTHOAI  |     6600 | 1.899e+06 | TP. Hồ Chí Minh | https://cf.shopee.vn/file/622be579c39efa0ea92b8659aebfb90a_tn | https://shopee.vn/%C4%91i%E1%BB%87n-tho%E1%BA%A1i-Samsung-Galaxy-S7-ch%C3%ADnh-h%C3%A3ng-full-ch%E1%BB%A9c-n%C4%83ng-i.48782032.7241163781         |
 ---
 - **items.csv:** 15638 dòng, 21 cột, cột cần được dự đoán là n_sold
 
