@@ -154,6 +154,7 @@ Bên cạnh các thuộc tính, nhóm cũng mong muốn có thể tìm một met
 ## Sold Capability Prediction
 Metrics đánh giá mà nhóm sử dụng: ***Mean Absolute Error (MAE)*** hoặc ***Soft Interval Accuracy (SIA)***
 Các features sử dụng cho việc dự đoán: 
+
 |Feature name | Type | 
 |---|---|
 |category |categorical|
@@ -172,12 +173,15 @@ Các features sử dụng cho việc dự đoán:
 Ta sẽ phân chia dữ liệu thành các tập `train - validation - test` set theo tỉ lệ: `60% - 20% - 20%`
 ### Random Forest Regression
 #### Dự đoán sử dụng toàn bộ features (one hot + numeric) 82 chiều:
+
 Kết quả:
+
 |Dataset|MAE|
 |-|-|
 |train| 159.64|
 |val| 413.99|
 |test| 472.69|
+
 *Ghi chú*: do kết quả dự đoán có thể lên đến đơn vị nghìn (lượt bán), để dễ giải thích, ta sẽ sử dụng độ đo `MAE` (thay vì `MSE` như thông thường). Do đó ta có thể đánh giá `MAE` trên tập test ~473 có nghĩa là mô hình dự đoán trung bình sai số khoảng 473 cho một sản phẩm trong tập test.
 
 Bây giờ ta sẽ xét `SIA` metric. 
@@ -243,6 +247,7 @@ Kết quả:
 ### Linear Regression
 Ta sẽ tiến hành thực nghiệm trên một mô hình đơn giản hơn là Linear Regression.
 Trước khi huấn luyện mô hình, ta sẽ chuẩn hóa các features theo phương pháp Z-score normalization:
+
 \begin{equation}
     Z_i = \frac{X_i - \mu}{\sigma}
 \end{equation}
@@ -258,8 +263,10 @@ Trước khi huấn luyện mô hình, ta sẽ chuẩn hóa các features theo p
 ***Nhận xét***: Ta thấy mô hình Linear Regression có `SIA` thấp hơn so với khi sử dụng Random Forest khá nhiều. Hơn nữa, ta thấy mô hình có `MAE` trên tập `val` và tập `test` cao bất thường. Sau khi tìm hiểu nguyên nhân thì ta nhận thấy có một vài hệ số (coefficient) của một số feature có giá trị rất cao (Ví dụ như `8.94728651e+14`). Hơn nữa, ta nhận thấy các hệ số này thuộc về feature `shop_address` (onehot). Nguyên nhân có thể là do việc tối ưu hàm mất mát (sử dụng phương pháp Ordinary Least Square để nghịch đảo một ma trận thưa (sparse matrix)). Để khắc phục, ta sẽ sử dụng `L2 Regularization` (Ridge) để giới hạn giá trị của các hệ số.
 
 Kết quả khi sử dụng Ridge Regression (cùng với việc tinh chỉnh hyperparameter $\alpha$ tốt nhất sử dụng phương pháp GridSearch trên tập `val`), ta có kết quả như sau:
+
 `Best cross-validation MAE: 582.711 
 with alpha = 10.0`
+
 |Dataset|MAE|SIA-500|SIA-200|
 |---|---|---|---|---|
 |train|609.247|0.721|0.473|
@@ -274,6 +281,7 @@ Ta thấy hiệu năng của mô hình thấp hơn phương pháp Random Fores
 #### Linear Regression chỉ sử dụng các numerical features:
 
 Kết quả:
+
 |Dataset|MAE|SIA-500|SIA-200|
 |---|---|---|---|---|
 |train|600.929|0.764|0.399|
@@ -313,11 +321,13 @@ Input Vector -> FC(32 units) + ReLU -> FC(64 units) + ReLU -> Output (1 unit) + 
 Nguyên nhân ta sử dụng hàm ReLU activation lên output (thay vì Linear) là do ta muốn các giá trị dự đoán đều không âm.
 Với weights của mỗi layer, ta sẽ sử dụng `L2-Regularization` với $\alpha$ =0.1 để hạn chế việc overfitting.
 Hàm mất mát ta sẽ sử dụng là hàm `MAE`:
+
 \begin{equation}
-L(y, \hat{y}) = \frac{1}{N} \sum_{i=0}^{N}|y - {\hat{y}}_i|
+    L(y, \hat{y}) = \frac{1}{N} \sum_{i=0}^{N}|y -     {\hat{y}}_i|
 \end{equation}
 
 #### Sử dụng toàn bộ features (Onehot Encoding + numeric) 82 chiều:
+
 |Dataset|MAE|SIA-500|SIA-200|
 |---|---|---|---|---|
 |train|405.848|0.867|0.727|
@@ -326,7 +336,8 @@ L(y, \hat{y}) = \frac{1}{N} \sum_{i=0}^{N}|y - {\hat{y}}_i|
 
 ---
 
-#### Chỉ sử dụng các numerical features :
+#### Chỉ sử dụng các numerical features:
+
 |Dataset|MAE|SIA-500|SIA-200|
 |---|---|---|---|---|
 |train|449.249|0.840|0.710|
@@ -336,11 +347,13 @@ L(y, \hat{y}) = \frac{1}{N} \sum_{i=0}^{N}|y - {\hat{y}}_i|
 ---
 
 #### Sử dụng Mean Encoding cho các categorical features (12 chiều):
+
 |Dataset|MAE|SIA-500|SIA-200|
 |---|---|---|---|---|
 |train|433.238|0.851|0.723|
 |val|401.349|0.848|0.714|
 |test|457.555|0.836|0.707|
+
 ***Nhận xét***: Đối với mô hình Neural Network, Mean Encoding dường như phù hợp hơn so với khi sử dụng Onehot Encoding với khi ta cần quan tâm đến sai số dự đoán một cách chặt chẽ hơn (`SIA-200`). (còn với `MAE` và `SIA-500` thì Onehot lại tốt hơn).
 
 **KẾT LUẬN**: thực nghiệm cho thấy 2 mô hình cho kết quả tốt nhất là Random Forest và Neural Network với việc sử dụng toàn bộ các features. Tuy nhiên mô hình Neural Network có thời gian huấn luyện khá lâu so với Random Forest. Hơn nữa, nhóm nhận thấy metric đánh giá `SIA-200` là phù hợp với tập dữ liệu này, nguyên nhân là vì trong phần **EDA**, ta thấy phần lớn các sản phẩm đều có số lượt bán thấp (75% dữ liệu có số lượt bán dưới 1000). Do đó mà việc giới hạn sai số dự đoán (epsilon) thấp sẽ cho ta đánh giá phù hợp với mong muốn hơn.
