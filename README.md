@@ -255,7 +255,7 @@ Trước khi huấn luyện mô hình, ta sẽ chuẩn hóa các features theo p
 #### Linear Regression sử dụng toàn bộ features (one hot + numeric) 82 chiều:
 
 |Dataset|MAE|SIA-500|SIA-200|
-|---|---|---|---|---|
+|---|---|---|---|
 |train|615.818|0.721|0.473|
 |val|548840935861.995|0.702|0.451|
 |test|433296680921.950|0.708|0.467|
@@ -268,7 +268,7 @@ Kết quả khi sử dụng Ridge Regression (cùng với việc tinh chỉnh
 with alpha = 10.0`
 
 |Dataset|MAE|SIA-500|SIA-200|
-|---|---|---|---|---|
+|---|---|---|---|
 |train|609.247|0.721|0.473|
 |val|582.710|0.704|0.453|
 |test|615.954|0.707|0.467|
@@ -283,7 +283,7 @@ Ta thấy hiệu năng của mô hình thấp hơn phương pháp Random Fores
 Kết quả:
 
 |Dataset|MAE|SIA-500|SIA-200|
-|---|---|---|---|---|
+|---|---|---|---|
 |train|600.929|0.764|0.399|
 |val|567.050|0.769|0.389|
 |test|612.985|0.745|0.406|
