@@ -248,9 +248,9 @@ Kết quả:
 Ta sẽ tiến hành thực nghiệm trên một mô hình đơn giản hơn là Linear Regression.
 Trước khi huấn luyện mô hình, ta sẽ chuẩn hóa các features theo phương pháp Z-score normalization:
 
-
-$$Z_i = \frac{X_i - \mu}{\sigma}$$
-
+$$\begin{equation}
+    Z_i = \frac{X_i - \mu}{\sigma}
+\end{equation}$$
 
 #### Linear Regression sử dụng toàn bộ features (one hot + numeric) 82 chiều:
 
@@ -322,9 +322,9 @@ Nguyên nhân ta sử dụng hàm ReLU activation lên output (thay vì Linea
 Với weights của mỗi layer, ta sẽ sử dụng `L2-Regularization` với $\alpha$ =0.1 để hạn chế việc overfitting.
 Hàm mất mát ta sẽ sử dụng là hàm `MAE`:
 
-$\begin{equation}
+\begin{equation}
     L(y, \hat{y}) = \frac{1}{N} \sum_{i=0}^{N}|y -     {\hat{y}}_i|
-\end{equation}$
+\end{equation}
 
 #### Sử dụng toàn bộ features (Onehot Encoding + numeric) 82 chiều:
 
