@@ -249,7 +249,7 @@ Ta sẽ tiến hành thực nghiệm trên một mô hình đơn giản h�
 Trước khi huấn luyện mô hình, ta sẽ chuẩn hóa các features theo phương pháp Z-score normalization:
 
 
-   $Z_i = \frac{X_i - \mu}{\sigma}$
+$$Z_i = \frac{X_i - \mu}{\sigma}$$
 
 
 #### Linear Regression sử dụng toàn bộ features (one hot + numeric) 82 chiều:
