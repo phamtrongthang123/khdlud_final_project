@@ -154,7 +154,6 @@ Bên cạnh các thuộc tính, nhóm cũng mong muốn có thể tìm một met
 ## Sold Capability Prediction
 Metrics đánh giá mà nhóm sử dụng: ***Mean Absolute Error (MAE)*** hoặc ***Soft Interval Accuracy (SIA)***
 Các features sử dụng cho việc dự đoán: 
-
 |Feature name | Type | 
 |---|---|
 |category |categorical|
@@ -173,9 +172,7 @@ Các features sử dụng cho việc dự đoán:
 Ta sẽ phân chia dữ liệu thành các tập `train - validation - test` set theo tỉ lệ: `60% - 20% - 20%`
 ### Random Forest Regression
 #### Dự đoán sử dụng toàn bộ features (one hot + numeric) 82 chiều:
-
 Kết quả:
-
 |Dataset|MAE|
 |-|-|
 |train| 159.64|
@@ -246,7 +243,6 @@ Kết quả:
 ### Linear Regression
 Ta sẽ tiến hành thực nghiệm trên một mô hình đơn giản hơn là Linear Regression.
 Trước khi huấn luyện mô hình, ta sẽ chuẩn hóa các features theo phương pháp Z-score normalization:
-
 \begin{equation}
     Z_i = \frac{X_i - \mu}{\sigma}
 \end{equation}
@@ -254,7 +250,7 @@ Trước khi huấn luyện mô hình, ta sẽ chuẩn hóa các features theo p
 #### Linear Regression sử dụng toàn bộ features (one hot + numeric) 82 chiều:
 
 |Dataset|MAE|SIA-500|SIA-200|
-|-|-|-|-|-|
+|---|---|---|---|---|
 |train|615.818|0.721|0.473|
 |val|548840935861.995|0.702|0.451|
 |test|433296680921.950|0.708|0.467|
@@ -264,9 +260,8 @@ Trước khi huấn luyện mô hình, ta sẽ chuẩn hóa các features theo p
 Kết quả khi sử dụng Ridge Regression (cùng với việc tinh chỉnh hyperparameter $\alpha$ tốt nhất sử dụng phương pháp GridSearch trên tập `val`), ta có kết quả như sau:
 `Best cross-validation MAE: 582.711 
 with alpha = 10.0`
-
 |Dataset|MAE|SIA-500|SIA-200|
-|-|-|-|-|-|
+|---|---|---|---|---|
 |train|609.247|0.721|0.473|
 |val|582.710|0.704|0.453|
 |test|615.954|0.707|0.467|
@@ -279,9 +274,8 @@ Ta thấy hiệu năng của mô hình thấp hơn phương pháp Random Fores
 #### Linear Regression chỉ sử dụng các numerical features:
 
 Kết quả:
-
 |Dataset|MAE|SIA-500|SIA-200|
-|-|-|-|-|-|
+|---|---|---|---|---|
 |train|600.929|0.764|0.399|
 |val|567.050|0.769|0.389|
 |test|612.985|0.745|0.406|
@@ -295,11 +289,10 @@ Tiếp theo ta sẽ thử sử dụng Mean Encoding thay thế cho One Hot Encod
 ---
 
 #### Linear Regression sử dụng Mean Encoding cho các categorical features (12 chiều):
-
 Kết quả:
 
 |Dataset|MAE|SIA-500|SIA-200|
-|-|-|-|-|-|
+|---|---|---|---|---|
 |train|602.964|0.755|0.434|
 |val|565.976|0.765|0.425|
 |test|611.147|0.743|0.430|
@@ -311,7 +304,6 @@ Ta thấy kết quả có phần ổn định hơn so với 2 phần trên (
 
 
 ### Neural Network Regression
-
 Tương tự như Linear Regression , ta sẽ tiền xử lý input bằng việc chuẩn hóa các features theo phương pháp Z-score normalization.
 Ta sẽ thực nghiệm với 1 mạng Neural Network nhỏ như sau:
 
@@ -321,16 +313,13 @@ Input Vector -> FC(32 units) + ReLU -> FC(64 units) + ReLU -> Output (1 unit) + 
 Nguyên nhân ta sử dụng hàm ReLU activation lên output (thay vì Linear) là do ta muốn các giá trị dự đoán đều không âm.
 Với weights của mỗi layer, ta sẽ sử dụng `L2-Regularization` với $\alpha$ =0.1 để hạn chế việc overfitting.
 Hàm mất mát ta sẽ sử dụng là hàm `MAE`:
-
-
 \begin{equation}
 L(y, \hat{y}) = \frac{1}{N} \sum_{i=0}^{N}|y - {\hat{y}}_i|
 \end{equation}
 
 #### Sử dụng toàn bộ features (Onehot Encoding + numeric) 82 chiều:
-
 |Dataset|MAE|SIA-500|SIA-200|
-|-|-|-|-|-|
+|---|---|---|---|---|
 |train|405.848|0.867|0.727|
 |val|391.498|0.852|0.693|
 |test|428.935|0.843|0.694|
@@ -338,9 +327,8 @@ L(y, \hat{y}) = \frac{1}{N} \sum_{i=0}^{N}|y - {\hat{y}}_i|
 ---
 
 #### Chỉ sử dụng các numerical features :
-
 |Dataset|MAE|SIA-500|SIA-200|
-|-|-|-|-|-|
+|---|---|---|---|---|
 |train|449.249|0.840|0.710|
 |val|414.424|0.836|0.700|
 |test|474.167|0.823|0.689|
@@ -348,9 +336,8 @@ L(y, \hat{y}) = \frac{1}{N} \sum_{i=0}^{N}|y - {\hat{y}}_i|
 ---
 
 #### Sử dụng Mean Encoding cho các categorical features (12 chiều):
-
 |Dataset|MAE|SIA-500|SIA-200|
-|-|-|-|-|-|
+|---|---|---|---|---|
 |train|433.238|0.851|0.723|
 |val|401.349|0.848|0.714|
 |test|457.555|0.836|0.707|
@@ -423,9 +410,8 @@ Một số lưu ý khi sử dụng phoBERT làm feature extractor:
 Do dữ liệu văn bản ở đây chưa đủ lớn nên ta sẽ fine-tune mô hình bằng việc đóng băng các trọng số của BERT, chỉ cần huấn luyện bộ classifier.
 
 Kết quả thu được:
-
 |Method|train acc.|val acc.|test acc.|
-|-|-|-|-|
+|---|---|---|---|
 |Linear SVM|0.535|0.494|0.479|
 |Softmax Regression|0.542|0.495|0.484
 |Random Forest|0.983|0.349|0.354|
@@ -445,7 +431,7 @@ Sau khi thu thập dữ liệu, nhóm sẽ tiến hành chia thành các
 Số lượng ảnh trong từng tập con:
 
 |Dataset|No. of images|
-|-|-|
+|---|---|
 |train|11261|
 |val|1253|
 |test|3131|
