@@ -519,7 +519,8 @@ Trong phần crawl trên phải theo đúng thứ tự, vì dữ liệu `search.
 Sau khi đã thu thập toàn bộ dữ liệu 
 *Hoặc*
 ***Download toàn bộ dữ liệu mà nhóm đã chuẩn bị sẵn trên [Google Drive](https://)***
-Ta sẽ giải nén dữ liệu vào thư mục `./data`
+Ta sẽ giải nén dữ liệu vào thư mục `./data` (thư mục `./data` ở git chưa có dữ liệu hình ảnh vì quá nặng).
+
 Ta sẽ thực hiện các bước tiếp theo đó là *Khám phá dữ liệu* và *Mô hình hóa dữ liệu* để giải quyết bài toán.
 
 
