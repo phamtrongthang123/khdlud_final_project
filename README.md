@@ -322,14 +322,14 @@ Nguyên nhân ta sử dụng hàm ReLU activation lên output (thay vì Linea
 Với weights của mỗi layer, ta sẽ sử dụng `L2-Regularization` với $\alpha$ =0.1 để hạn chế việc overfitting.
 Hàm mất mát ta sẽ sử dụng là hàm `MAE`:
 
-\begin{equation}
+$\begin{equation}
     L(y, \hat{y}) = \frac{1}{N} \sum_{i=0}^{N}|y -     {\hat{y}}_i|
-\end{equation}
+\end{equation}$
 
 #### Sử dụng toàn bộ features (Onehot Encoding + numeric) 82 chiều:
 
 |Dataset|MAE|SIA-500|SIA-200|
-|---|---|---|---|---|
+|---|---|---|---|
 |train|405.848|0.867|0.727|
 |val|391.498|0.852|0.693|
 |test|428.935|0.843|0.694|
@@ -339,7 +339,7 @@ Hàm mất mát ta sẽ sử dụng là hàm `MAE`:
 #### Chỉ sử dụng các numerical features:
 
 |Dataset|MAE|SIA-500|SIA-200|
-|---|---|---|---|---|
+|---|---|---|---|
 |train|449.249|0.840|0.710|
 |val|414.424|0.836|0.700|
 |test|474.167|0.823|0.689|
@@ -349,7 +349,7 @@ Hàm mất mát ta sẽ sử dụng là hàm `MAE`:
 #### Sử dụng Mean Encoding cho các categorical features (12 chiều):
 
 |Dataset|MAE|SIA-500|SIA-200|
-|---|---|---|---|---|
+|---|---|---|---|
 |train|433.238|0.851|0.723|
 |val|401.349|0.848|0.714|
 |test|457.555|0.836|0.707|
