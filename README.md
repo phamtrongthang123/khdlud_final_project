@@ -513,6 +513,8 @@ Bên dưới là thứ tự crawl dữ liệu:
 - `crawling_product_api.ipynb` tương tự cho notebook trên, chỉ khác là dùng query request lên nên sẽ nhanh hơn một chút.
 - `crawling_product_cmt.ipynb` chạy từ đầu đến trước phần `using requests` nếu chỉ crawling html, nếu muốn dùng query thì sau khi import thư viện chỉ việc chạy các cell bên trong phần `using requests`
 
+Trong phần crawl trên phải theo đúng thứ tự, vì dữ liệu `search.csv` sau khi crawl xong sẽ không có cột id. Do đó bên crawl product và cmt sẽ đọc và thêm id bên trong, save thành file mới là `search_withid.csv` có cột id. Nếu muốn dùng tiếp vào EDA thì bước đọc dữ liệu search sẽ đọc file này vì sẽ có bước join dựa trên id. 
+
 Sau khi đã thu thập toàn bộ dữ liệu 
 *Hoặc*
 ***Download toàn bộ dữ liệu mà nhóm đã chuẩn bị sẵn trên [Google Drive](https://)***
