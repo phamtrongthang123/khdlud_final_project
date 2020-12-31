@@ -1,4 +1,7 @@
 # Khoa học dữ liệu và ứng dụng
+
+(Bên dưới có phần toán chưa được render nếu đọc trực tiếp ở github, có thể đọc bản render ở [hackmd của nhóm](https://hackmd.io/@phamtrongthang123/BkfqdAITP))
+
 - [Khoa học dữ liệu và ứng dụng](#khoa-h-c-d--li-u-v---ng-d-ng)
   * [Thành viên nhóm](#tha-nh-vi-n-nho-m)
   * [Phân công công việc](#ph-n-c-ng-c-ng-vi--c)
