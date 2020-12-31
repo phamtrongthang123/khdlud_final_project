@@ -2,7 +2,7 @@
 - [Khoa học dữ liệu và ứng dụng](#khoa-h-c-d--li-u-v---ng-d-ng)
   * [Thành viên nhóm](#tha-nh-vi-n-nho-m)
   * [Phân công công việc](#ph-n-c-ng-c-ng-vi--c)
-- [Đề tài](#---t-i)
+- [Đề tài](#Đề-tài)
 - [Thu thập dữ liệu](#thu-th-p-d--li-u)
 - [Shopee datasets](#shopee-datasets)
 - [Khám phá dữ liệu](#kha-m-pha--d---li--u)
@@ -36,7 +36,7 @@
 
 |Họ & tên|MSSV|
 |-|-|
-|Lê Minh Nhật| 1712114|
+|Lê Minh Nhật| 1712114
 |Phạm Trọng Thắng| 1712760 |
 
 ## Phân công công việc
@@ -99,25 +99,24 @@ Bộ 15k6 dòng gồm:
 
 **Tổng quan và mô tả dữ liệu được sử dụng:**
 
-- **search_15k6.csv:** 15648 dòng, 8 cột
+- **search_15k6.csv:** 15648 dòng, 7 cột
 
-|    | Column       | Dtype   | Description                                                                                            |
-|---:|:-------------|:--------|:-------------------------------------------------------------------------------------------------------|
-|  0 | id           | int64   | id của sản phẩm tại dòng tương ứng với index từ search_15k6, dùng để map sang bộ dữ liệu lưu bình luận |
-|  1 | name         | string  | Tên của sản phẩm                                                                                       |
-|  2 | category     | string  | Nhóm sản phẩm                                                                                          |
-|  3 | n_sold       | float64 | Số lượng sản phẩm đã bán                                                                               |
-|  4 | price        | float64 | Giá tiền của sản phẩm                                                                                  |
-|  5 | shop_address | string  | Địa chỉ của shop                                                                                       |
-|  6 | image_url    | string  | Url của thumbnail sản phẩm                                                                             |
-|  7 | url          | string  | Url tới sản phẩm (phục vụ việc crawl dữ liệu items)                                                    |
+|    | Column       | Dtype   | Description                                         |
+|---:|:-------------|:--------|:----------------------------------------------------|
+|  0 | name         | string  | Tên của sản phẩm                                    |
+|  1 | category     | string  | Nhóm sản phẩm                                       |
+|  2 | n_sold       | float64 | Số lượng sản phẩm đã bán                            |
+|  3 | price        | float64 | Giá tiền của sản phẩm                               |
+|  4 | shop_address | string  | Địa chỉ của shop                                    |
+|  5 | image_url    | string  | Url của thumbnail sản phẩm                          |
+|  6 | url          | string  | Url tới sản phẩm (phục vụ việc crawl dữ liệu items) |
 
 **Ví dụ:** 
 
-|    |   id | name                                                             | category   |   n_sold |     price | shop_address    | image_url                                                     | url                                                                                                                                                |
-|---:|-----:|:-----------------------------------------------------------------|:-----------|---------:|----------:|:----------------|:--------------------------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------|
-|  0 |    0 | Điện thoại OPPO A37 Fullbox Mới - 2GB/16GB - Bảo hành 12 tháng - | DIENTHOAI  |     7800 | 1.299e+06 | TP. Hồ Chí Minh | https://cf.shopee.vn/file/654146756efe4b5fe7cf516a2221b153_tn | https://shopee.vn/%C4%90i%E1%BB%87n-tho%E1%BA%A1i-OPPO-A37-Fullbox-M%E1%BB%9Bi-2GB-16GB-B%E1%BA%A3o-h%C3%A0nh-12-th%C3%A1ng--i.48782032.6841251055 |
-|  1 |    1 | điện thoại Samsung Galaxy S7 chính hãng / full chức năng         | DIENTHOAI  |     6600 | 1.899e+06 | TP. Hồ Chí Minh | https://cf.shopee.vn/file/622be579c39efa0ea92b8659aebfb90a_tn | https://shopee.vn/%C4%91i%E1%BB%87n-tho%E1%BA%A1i-Samsung-Galaxy-S7-ch%C3%ADnh-h%C3%A3ng-full-ch%E1%BB%A9c-n%C4%83ng-i.48782032.7241163781         |
+|    | name                                                             | category   |   n_sold |     price | shop_address    | image_url                                                     | url                                                                                                                                                |
+|---:|:-----------------------------------------------------------------|:-----------|---------:|----------:|:----------------|:--------------------------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------|
+|  0 | Điện thoại OPPO A37 Fullbox Mới - 2GB/16GB - Bảo hành 12 tháng - | DIENTHOAI  |     7800 | 1.299e+06 | TP. Hồ Chí Minh | https://cf.shopee.vn/file/654146756efe4b5fe7cf516a2221b153_tn | https://shopee.vn/%C4%90i%E1%BB%87n-tho%E1%BA%A1i-OPPO-A37-Fullbox-M%E1%BB%9Bi-2GB-16GB-B%E1%BA%A3o-h%C3%A0nh-12-th%C3%A1ng--i.48782032.6841251055 |
+|  1 | điện thoại Samsung Galaxy S7 chính hãng / full chức năng         | DIENTHOAI  |     6600 | 1.899e+06 | TP. Hồ Chí Minh | https://cf.shopee.vn/file/622be579c39efa0ea92b8659aebfb90a_tn | https://shopee.vn/%C4%91i%E1%BB%87n-tho%E1%BA%A1i-Samsung-Galaxy-S7-ch%C3%ADnh-h%C3%A3ng-full-ch%E1%BB%A9c-n%C4%83ng-i.48782032.7241163781         |
 ---
 - **items.csv:** 15638 dòng, 21 cột, cột cần được dự đoán là n_sold
 
@@ -514,13 +513,10 @@ Bên dưới là thứ tự crawl dữ liệu:
 - `crawling_product_api.ipynb` tương tự cho notebook trên, chỉ khác là dùng query request lên nên sẽ nhanh hơn một chút.
 - `crawling_product_cmt.ipynb` chạy từ đầu đến trước phần `using requests` nếu chỉ crawling html, nếu muốn dùng query thì sau khi import thư viện chỉ việc chạy các cell bên trong phần `using requests`
 
-Trong phần crawl trên phải theo đúng thứ tự, vì dữ liệu `search.csv` sau khi crawl xong sẽ không có cột id. Do đó bên crawl product và cmt sẽ đọc và thêm id bên trong, save thành file mới là `search_withid.csv` có cột id. Nếu muốn dùng tiếp vào EDA thì bước đọc dữ liệu search sẽ đọc file này vì sẽ có bước join dựa trên id. 
-
 Sau khi đã thu thập toàn bộ dữ liệu 
 *Hoặc*
-***Download toàn bộ dữ liệu mà nhóm đã chuẩn bị sẵn trên [Google Drive](https://)***
-Ta sẽ giải nén dữ liệu vào thư mục `./data` (thư mục `./data` ở git chưa có dữ liệu hình ảnh vì quá nặng).
-
+***Download toàn bộ dữ liệu mà nhóm đã chuẩn bị sẵn trên [Google Drive](https://drive.google.com/file/d/1_GiiVTRmTPNnnPA9Hn5fHMgSMZYqy0z9/view?usp=sharing)***
+Ta sẽ giải nén dữ liệu vào thư mục `./data`
 Ta sẽ thực hiện các bước tiếp theo đó là *Khám phá dữ liệu* và *Mô hình hóa dữ liệu* để giải quyết bài toán.
 
 
@@ -534,18 +530,29 @@ Nhóm đã thực hiện 3 bài toán ở trên một cách độc lâ
 - `[Modeling] Reviews Rating Prediction.ipynb`
 - `[Modeling] Image Product Category Prediction.ipynb`
 
-Lưu ý: Ở đây nhóm đã giả sử các thư viện cần thiết được cài đặt đầy đủ (ngoài các thư viên thông dụng thì các thư viện đặc biệt cài đặt có trong các file notebooks). Đặc biệt là thư viện `tensorflow>=2.0.0`
+Lưu ý: Ở đây nhóm đã giả sử các thư viện cần thiết được cài đặt đầy đủ (ngoài các thư viên thông dụng thì các thư viện đặc biệt cài đặt có trong các file notebooks). Đặc biệt nhóm sử dụng thư viện `tensorflow>=2.0.0`
 
 
 Do đó chỉ cần dữ liệu hợp lệ là có thể chạy riêng từng file từ trên xuống dưới.
 
 Ngoài ra nhóm còn tổng hợp 3 Bài toán trên vào một file `Demo.ipynb` để thực hiện kiểm tra các mô hình dự đoán trong sản phẩm thực tế.
-# Demo
 
+## Lưu ý:
+Dữ liệu mà nhóm thu thập được chỉ là một phần nhỏ các sản phẩm có trên shopee. Do đó ta chỉ có thể demo một cách đúng đắn với một số sản phẩm nhất định mà thôi (chẳng hạn như sản phẩm thuộc 16 category kể trên). Còn với các sản phẩm không nằm trong danh mục của dữ liệu huấn luyện thì việc chạy demo sẽ bị sai.
+
+
+# Demo
 **Trước khi chạy demo, cần phải download các models đã được nhóm trained sẵn ở [Google Drive](https://drive.google.com/file/d/1KOBqpxT7lw78n_QOhQW93FlNea6HG76G/view?usp=sharing)**, sau đó giải nén thành thư mục `./models`
+
+Đầu tiên, ta sẽ chạy command sau để crawl dữ liệu từ web page của sản phẩm và xuất ra file json:
+```
+python crawl.py <url sản phẩm> > demo_crawl_result.json
+```
 
 Bên dưới là video demo:
 [![Watch the video](https://img.youtube.com/vi/iyVyJtr7p8Y/maxresdefault.jpg)](https://youtu.be/iyVyJtr7p8Y)
 
 Trong video dù notebook có nhiều folder, nhưng thực tế chỉ cần tạo sẵn `./demo` rỗng, upload `data` có các file csv như trên git và `models` như đã đều cập. Sau đó chạy notebook `Demo.ipynb` từ đầu tới cuối như clip là được (trong clip do đã install requirement ở 2 cell đầu từ trước nên nhóm chạy từ bước import). 
+
+
 
