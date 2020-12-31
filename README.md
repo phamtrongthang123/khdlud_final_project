@@ -542,11 +542,10 @@ Do đó chỉ cần dữ liệu hợp lệ là có thể chạy riêng 
 Ngoài ra nhóm còn tổng hợp 3 Bài toán trên vào một file `Demo.ipynb` để thực hiện kiểm tra các mô hình dự đoán trong sản phẩm thực tế.
 # Demo
 
+**Trước khi chạy demo, cần phải download các models đã được nhóm trained sẵn ở [Google Drive](https://drive.google.com/file/d/1KOBqpxT7lw78n_QOhQW93FlNea6HG76G/view?usp=sharing)**, sau đó giải nén thành thư mục `./models`
 
-![](https://i.imgur.com/eccH8Yg.png)
+Bên dưới là video demo:
+[![Watch the video](https://img.youtube.com/vi/iyVyJtr7p8Y/maxresdefault.jpg)](https://youtu.be/iyVyJtr7p8Y)
 
-
-```
-sas
-```
+Trong video dù notebook có nhiều folder, nhưng thực tế chỉ cần tạo sẵn `./demo` rỗng, upload `data` có các file csv như trên git và `models` như đã đều cập. Sau đó chạy notebook `Demo.ipynb` từ đầu tới cuối như clip là được (trong clip do đã install requirement ở 2 cell đầu từ trước nên nhóm chạy từ bước import). 
 
