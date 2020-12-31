@@ -42,13 +42,14 @@
 |Lê Minh Nhật| 1712114|
 |Phạm Trọng Thắng| 1712760 |
 
-## Tự đánh giá dựa trên nội dung đồ án
+## Tự đánh giá dựa trên đồ án
 
 |Nội dung||
 |-|-|
-|Ứng dụng Quy trình Khoa học dữ liệu để trả loại cho loại câu hỏi dự đoán. | Hoàn thành |
-|Phải dùng Máy Học để mô hình hóa dữ liệu. | Hoàn thành |
-|Tự thu nhập dữ liệu cho câu hỏi. Không được lấy dữ liệu có sẵn. Thu nhập bằng cách sử dụng parse HTML, dùng API.| Hoàn thành |
+|Ứng dụng Quy trình Khoa học dữ liệu để trả lời các vấn đề đặt ra. | Hoàn thành |
+|Sử dụng máy học để mô hình hóa dữ liệu và giải quyết bài toán | Hoàn thành |
+|Thu thập dữ liệu bằng cách sử dụng parse HTML| Hoàn thành|
+|Thu thập dữ liệu bằng cách sử dụng API| Hoàn thành |
 
 **Kết quả:** Hoàn thành các nội dung cần bám theo và có demo được kết quả đồ án. 
 
